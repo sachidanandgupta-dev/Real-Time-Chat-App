@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-canvas: #0b0d12;
+    --color-panel: #12151c;
+    --color-elevated: #1b1f29;
+    --color-elevated-2: #232838;
+    --color-hairline: #262b36;
+    --color-text: #edeff3;
+    --color-text-muted: #8a91a3;
+    --color-text-faint: #565d6e;
+    --color-accent: #ff7a59;
+    --color-accent-dim: #c75b3f;
+    --color-online: #34d399;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-elevated-2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-elevated-2);
+  border-radius: 999px;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.online-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-enter {
+  animation: rise-in 0.18s ease-out;
+}
